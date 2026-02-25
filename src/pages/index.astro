@@ -934,9 +934,18 @@ const stats = [
         <p class="text-xs text-white/30 uppercase tracking-widest">
           &copy; 2026 Rizki Android. Seluruh hak dilindungi.
         </p>
-        <p class="text-xs text-white/30 uppercase tracking-widest">
-          Jasa Pembuatan Aplikasi Android Sidoarjo
-        </p>
+        <div class="flex items-center gap-4">
+          <!-- Visitor Counter -->
+          <div class="flex items-center gap-2 border border-white/20 px-3 py-1.5">
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-white/50">
+              <span id="visitor-count">—</span> Pengunjung
+            </span>
+          </div>
+          <p class="text-xs text-white/30 uppercase tracking-widest">
+            Jasa Pembuatan Aplikasi Android Sidoarjo
+          </p>
+        </div>
       </div>
     </div>
   </footer>
@@ -1156,5 +1165,26 @@ const stats = [
     window.setAppType = setAppType;
     window.adjustScreen = adjustScreen;
     window.submitOrder = submitOrder;
+  </script>
+
+  <!-- Visitor Counter -->
+  <script is:inline>
+    (function() {
+      const NAMESPACE = "rizkiandroid-sidoarjo";
+      const KEY = "page-visits";
+      const API = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
+      const el = document.getElementById("visitor-count");
+
+      fetch(API)
+        .then(res => res.json())
+        .then(data => {
+          if (el && data.count) {
+            el.textContent = data.count.toLocaleString("id-ID");
+          }
+        })
+        .catch(() => {
+          if (el) el.textContent = "—";
+        });
+    })();
   </script>
 </Layout>
