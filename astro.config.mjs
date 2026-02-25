@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/jasa-bikin-aplikasi-android-sidoarjo',
+  // base: '/jasa-bikin-aplikasi-android-sidoarjo',
   vite: {
     plugins: [tailwindcss()]
   }
