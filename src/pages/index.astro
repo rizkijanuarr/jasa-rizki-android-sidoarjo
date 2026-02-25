@@ -1,0 +1,1160 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    num: "A",
+    title: "Aplikasi Custom",
+    desc: "Pembuatan aplikasi Android sesuai kebutuhan bisnis Anda. Dari konsep hingga rilis di Play Store.",
+  },
+  {
+    num: "B",
+    title: "UI/UX Design",
+    desc: "Desain antarmuka yang intuitif dan menarik, mengutamakan pengalaman pengguna terbaik.",
+  },
+  {
+    num: "C",
+    title: "Maintenance & Support",
+    desc: "Dukungan teknis berkelanjutan, update fitur, dan perbaikan bug pasca rilis.",
+  },
+  {
+    num: "D",
+    title: "Konsultasi IT",
+    desc: "Konsultasi gratis untuk menentukan solusi teknologi terbaik bagi bisnis Anda.",
+  },
+];
+
+const processes = [
+  { step: "01", title: "Diskusi & Analisis", desc: "Memahami kebutuhan bisnis dan target pengguna Anda secara mendalam." },
+  { step: "02", title: "Perencanaan & Wireframe", desc: "Merancang alur aplikasi dan prototype awal untuk validasi konsep." },
+  { step: "03", title: "Desain & Development", desc: "Implementasi desain UI/UX dan pengembangan kode berkualitas tinggi." },
+  { step: "04", title: "Testing & QA", desc: "Pengujian menyeluruh di berbagai perangkat Android untuk memastikan kualitas." },
+  { step: "05", title: "Rilis & Deployment", desc: "Publikasi ke Google Play Store dan konfigurasi server production." },
+  { step: "06", title: "After-Sales Support", desc: "Maintenance rutin, monitoring performa, dan iterasi berdasarkan feedback." },
+];
+
+const advantages = [
+  { title: "Berpengalaman", desc: "Tim developer berpengalaman dalam berbagai proyek Android skala kecil hingga enterprise." },
+  { title: "Harga Terjangkau", desc: "Biaya kompetitif tanpa mengorbankan kualitas. Transparan tanpa biaya tersembunyi." },
+  { title: "Tepat Waktu", desc: "Komitmen deadline yang ketat dengan project management profesional." },
+  { title: "Teknologi Terkini", desc: "Menggunakan Kotlin, Jetpack Compose, dan arsitektur modern Android." },
+  { title: "Support 24/7", desc: "Tim support responsif siap membantu kapanpun Anda membutuhkan." },
+  { title: "Lokal Sidoarjo", desc: "Berbasis di Sidoarjo — meeting tatap muka untuk komunikasi yang lebih efektif." },
+];
+
+const portfolios = [
+  { title: "Aplikasi Kasir POS", category: "Retail & UMKM", year: "2025" },
+  { title: "Sistem Manajemen Gudang", category: "Logistik", year: "2025" },
+  { title: "Aplikasi Booking Lapangan", category: "Olahraga & Leisure", year: "2024" },
+  { title: "Platform E-Learning", category: "Pendidikan", year: "2024" },
+];
+
+const testimonials = [
+  { name: "Budi Santoso", role: "Owner, Toko Maju Jaya", quote: "Aplikasi kasir dari Rizki Android sangat membantu operasional toko kami. Transaksi jadi lebih cepat dan akurat." },
+  { name: "Siti Rahayu", role: "Manager, PT Logistik Nusantara", quote: "Sistem gudang yang dibuatkan sangat robust. Stok barang bisa dipantau real-time dari mana saja." },
+  { name: "Ahmad Fauzi", role: "Founder, SportSpace", quote: "Dari konsep sampai rilis hanya 2 bulan. Kualitas top dan timnya sangat komunikatif." },
+];
+
+const stats = [
+  { number: "50+", label: "Proyek Selesai" },
+  { number: "40+", label: "Klien Puas" },
+  { number: "4+", label: "Tahun Pengalaman" },
+  { number: "99%", label: "Tingkat Kepuasan" },
+];
+---
+
+<Layout title="Rizki Android — Jasa Pembuatan Aplikasi Android Sidoarjo">
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
+      <!-- Brand -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="/logo.svg" alt="Rizki Android" class="w-8 h-8 md:w-10 md:h-10 object-contain" />
+        <span class="font-black text-sm md:text-base uppercase tracking-tight">Rizki Android</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#layanan" class="nav-link text-xs font-bold uppercase tracking-widest" data-text="Layanan"><span>Layanan</span></a>
+        <a href="#proses" class="nav-link text-xs font-bold uppercase tracking-widest" data-text="Proses"><span>Proses</span></a>
+        <a href="#keunggulan" class="nav-link text-xs font-bold uppercase tracking-widest" data-text="Keunggulan"><span>Keunggulan</span></a>
+        <a href="#portofolio" class="nav-link text-xs font-bold uppercase tracking-widest" data-text="Portofolio"><span>Portofolio</span></a>
+        <a
+          href="#order"
+          class="bg-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-swiss-accent transition-colors duration-200 ease-out"
+        >
+          Order Sekarang
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+        aria-label="Toggle menu"
+      >
+        <span class="block w-6 h-0.5 bg-black transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-200" id="bar2"></span>
+        <span class="block w-4 h-0.5 bg-black transition-all duration-200 self-start ml-2" id="bar3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t-2 border-black bg-white">
+      <div class="px-6 py-8 flex flex-col gap-6">
+        <a href="#layanan" class="text-lg font-bold uppercase tracking-widest border-b border-black/10 pb-4 hover:text-swiss-accent transition-colors duration-200">Layanan</a>
+        <a href="#proses" class="text-lg font-bold uppercase tracking-widest border-b border-black/10 pb-4 hover:text-swiss-accent transition-colors duration-200">Proses</a>
+        <a href="#keunggulan" class="text-lg font-bold uppercase tracking-widest border-b border-black/10 pb-4 hover:text-swiss-accent transition-colors duration-200">Keunggulan</a>
+        <a href="#portofolio" class="text-lg font-bold uppercase tracking-widest border-b border-black/10 pb-4 hover:text-swiss-accent transition-colors duration-200">Portofolio</a>
+        <a href="#order" class="bg-black text-white text-center py-4 text-lg font-bold uppercase tracking-widest hover:bg-swiss-accent transition-colors duration-200">
+          Order Sekarang
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="pt-24 md:pt-32 pb-16 md:pb-24 border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0">
+        <!-- Left: Typography -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <div class="mb-6 md:mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+			<span class="inline-block text-xs font-bold uppercase tracking-widest text-swiss-accent border-2 border-swiss-accent px-4 py-2">
+              Kreativitas Tanpa Batas!
+            </span>
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-swiss-accent border-2 border-swiss-accent px-4 py-2">
+              Jasa Android Sidoarjo
+            </span>
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-white bg-swiss-accent border-2 border-swiss-accent px-4 py-2">
+              Mulai dari Rp. 500.000 aja!
+            </span>
+          </div>
+
+          <h1 class="font-black uppercase leading-[0.85] tracking-tighter mb-8 md:mb-12 text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]">
+            Wujudkan<br />
+            <span class="text-swiss-accent">Aplikasi</span><br />
+            Impian<br />
+            Anda
+          </h1>
+
+          <p class="text-base md:text-lg font-medium text-black/70 max-w-md mb-10 md:mb-14 leading-relaxed">
+            Kami adalah tim developer profesional di Sidoarjo yang mengubah ide bisnis Anda menjadi aplikasi Android berkualitas tinggi.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#order"
+              class="bg-black text-white px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-swiss-accent transition-colors duration-200 ease-out text-center"
+            >
+              Mulai Proyek →
+            </a>
+            <a
+              href="#portofolio"
+              class="border-2 border-black px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-200 ease-out text-center"
+            >
+              Lihat Portofolio
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Geometric Composition -->
+        <div class="lg:col-span-5 flex items-center justify-center lg:justify-end">
+          <div class="relative w-full max-w-[400px] aspect-square">
+            <!-- Background grid pattern -->
+            <div class="absolute inset-0 bg-swiss-muted swiss-grid-pattern"></div>
+
+            <!-- Large red circle -->
+            <div class="absolute top-8 right-8 w-48 h-48 md:w-56 md:h-56 rounded-full bg-swiss-accent opacity-90"></div>
+
+            <!-- Black rectangle -->
+            <div class="absolute bottom-12 left-0 w-40 h-56 md:w-48 md:h-64 bg-black"></div>
+
+            <!-- Small outlined circle -->
+            <div class="absolute top-4 left-12 w-20 h-20 rounded-full border-4 border-black"></div>
+
+            <!-- Thick horizontal line -->
+            <div class="absolute bottom-8 right-0 w-3/4 h-1 bg-swiss-accent"></div>
+
+            <!-- Small black square -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-black border-4 border-white"></div>
+
+            <!-- Vertical line -->
+            <div class="absolute top-0 right-24 w-1 h-3/5 bg-black"></div>
+
+            <!-- Dot matrix overlay -->
+            <div class="absolute inset-0 swiss-dots opacity-50"></div>
+
+            <!-- Android text label -->
+            <div class="absolute bottom-20 right-12 bg-white border-2 border-black px-3 py-1.5">
+              <span class="text-[10px] font-black uppercase tracking-widest">Android Dev</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 border-t-4 border-black mt-16 md:mt-24">
+        {stats.map((stat, i) => (
+          <div class={`py-8 md:py-12 px-4 md:px-8 group cursor-default hover:bg-black transition-colors duration-200 ${i < 3 ? "border-r-2 border-black" : ""} ${i < 2 ? "border-b-2 md:border-b-0 border-black" : ""}`}>
+            <div class="font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter group-hover:text-swiss-accent group-hover:scale-105 transition-all duration-200 origin-left">
+              {stat.number}
+            </div>
+            <div class="text-xs font-bold uppercase tracking-widest mt-2 text-black/60 group-hover:text-white/80 transition-colors duration-200">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       01. LAYANAN (Services)
+       ============================================ -->
+  <section id="layanan" class="py-16 md:py-24 border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <!-- Section Header -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-20">
+        <div class="lg:col-span-5">
+          <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">01. Layanan</span>
+          <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mt-4">
+            Apa Yang<br />Kami<br />Tawarkan
+          </h2>
+        </div>
+        <div class="lg:col-span-5 lg:col-start-8 flex items-end">
+          <p class="text-base md:text-lg font-medium text-black/60 leading-relaxed">
+            Solusi lengkap pengembangan aplikasi Android untuk bisnis Anda — dari perencanaan, desain, development, hingga maintenance.
+          </p>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+        {services.map((service, i) => (
+          <div class={`group border-2 border-black p-8 md:p-12 hover:bg-swiss-accent transition-colors duration-200 cursor-default ${i % 2 === 0 ? "md:border-r-0" : ""} ${i < 2 ? "border-b-0 md:border-b-2" : ""} ${i === 0 ? "border-b-0" : ""} ${i === 2 ? "md:border-t-0" : ""}`} style={i < 2 ? "" : ""}>
+            <div class="flex items-start justify-between mb-6">
+              <span class="text-6xl md:text-7xl font-black tracking-tighter text-black/10 group-hover:text-white/30 transition-colors duration-200">
+                {service.num}
+              </span>
+              <div class="w-10 h-10 border-2 border-black group-hover:border-white flex items-center justify-center transition-colors duration-200">
+                <span class="text-lg font-bold group-hover:text-white transition-colors duration-200 group-hover:rotate-45 inline-block origin-center" style="transition: transform 200ms ease-out, color 200ms ease-out;">→</span>
+              </div>
+            </div>
+            <h3 class="font-black text-xl md:text-2xl uppercase tracking-tight mb-4 group-hover:text-white transition-colors duration-200">
+              {service.title}
+            </h3>
+            <p class="text-sm md:text-base text-black/60 group-hover:text-white/80 transition-colors duration-200 leading-relaxed">
+              {service.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       02. PROSES (Process)
+       ============================================ -->
+  <section id="proses" class="py-16 md:py-24 bg-swiss-muted swiss-dots border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-20">
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">02. Proses</span>
+          <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mt-4">
+            Cara Kami<br />Bekerja
+          </h2>
+        </div>
+        <div class="lg:col-span-4 lg:col-start-9 flex items-end">
+          <p class="text-base md:text-lg font-medium text-black/60 leading-relaxed">
+            Metodologi terstruktur yang memastikan setiap proyek berjalan efisien dari awal hingga akhir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Process Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+        {processes.map((process, i) => (
+          <div class={`bg-white border-2 border-black p-8 md:p-10 group hover:bg-black transition-colors duration-200 cursor-default`}>
+            <div class="flex items-baseline gap-4 mb-6">
+              <span class="text-4xl md:text-5xl font-black tracking-tighter text-swiss-accent">
+                {process.step}
+              </span>
+              <div class="flex-1 h-0.5 bg-black/10 group-hover:bg-white/20 transition-colors duration-200"></div>
+            </div>
+            <h3 class="font-black text-lg md:text-xl uppercase tracking-tight mb-3 group-hover:text-white transition-colors duration-200">
+              {process.title}
+            </h3>
+            <p class="text-sm text-black/60 group-hover:text-white/70 transition-colors duration-200 leading-relaxed">
+              {process.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       03. KEUNGGULAN (Advantages)
+       ============================================ -->
+  <section id="keunggulan" class="py-16 md:py-24 border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+        <!-- Left: Sticky Header -->
+        <div class="lg:col-span-5">
+          <div class="lg:sticky lg:top-28">
+            <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">03. Keunggulan</span>
+            <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mt-4 mb-6">
+              Mengapa<br />Pilih<br />Kami?
+            </h2>
+            <p class="text-base md:text-lg font-medium text-black/60 leading-relaxed max-w-sm mb-8">
+              Kami menggabungkan keahlian teknis, pemahaman bisnis lokal, dan komitmen terhadap kualitas.
+            </p>
+
+            <!-- Geometric element -->
+            <div class="hidden lg:block relative w-full max-w-[280px] h-48 bg-swiss-muted swiss-diagonal">
+              <div class="absolute top-6 left-6 w-24 h-24 bg-swiss-accent"></div>
+              <div class="absolute bottom-6 right-6 w-16 h-16 border-4 border-black rounded-full"></div>
+              <div class="absolute top-0 right-0 w-1 h-full bg-black"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Advantages List -->
+        <div class="lg:col-span-7">
+          <div class="flex flex-col">
+            {advantages.map((adv, i) => (
+              <div class={`group py-8 md:py-10 ${i > 0 ? "border-t-2 border-black" : ""} cursor-default hover:pl-4 transition-all duration-200`}>
+                <div class="flex items-start gap-6">
+                  <span class="text-3xl md:text-4xl font-black tracking-tighter text-black/10 group-hover:text-swiss-accent transition-colors duration-200 shrink-0">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h3 class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2 group-hover:text-swiss-accent transition-colors duration-200">
+                      {adv.title}
+                    </h3>
+                    <p class="text-sm md:text-base text-black/60 leading-relaxed">
+                      {adv.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       04. PORTOFOLIO (Portfolio)
+       ============================================ -->
+  <section id="portofolio" class="py-16 md:py-24 bg-black text-white border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-20">
+        <div class="lg:col-span-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">04. Portofolio</span>
+          <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mt-4">
+            Proyek<br />Terbaru Kami
+          </h2>
+        </div>
+      </div>
+
+      <!-- Portfolio Items -->
+      <div class="flex flex-col">
+        {portfolios.map((item, i) => (
+          <div class={`group py-8 md:py-12 ${i > 0 ? "border-t border-white/20" : "border-t border-white/20"} cursor-pointer hover:pl-6 transition-all duration-200`}>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center">
+              <div class="md:col-span-1">
+                <span class="text-xs font-bold tracking-widest text-white/30 group-hover:text-swiss-accent transition-colors duration-200">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <div class="md:col-span-5">
+                <h3 class="font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-tight group-hover:text-swiss-accent transition-colors duration-200">
+                  {item.title}
+                </h3>
+              </div>
+              <div class="md:col-span-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-white/50">
+                  {item.category}
+                </span>
+              </div>
+              <div class="md:col-span-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-white/30">
+                  {item.year}
+                </span>
+              </div>
+              <div class="md:col-span-1 flex justify-end">
+                <div class="w-10 h-10 border-2 border-white/30 group-hover:border-swiss-accent group-hover:bg-swiss-accent flex items-center justify-center transition-all duration-200">
+                  <span class="text-white text-lg group-hover:-rotate-45 inline-block transition-transform duration-200">→</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 md:mt-16 pt-8 border-t border-white/20">
+        <a
+          href="#kontak"
+          class="inline-block border-2 border-white px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-swiss-accent hover:border-swiss-accent transition-colors duration-200 ease-out"
+        >
+          Diskusikan Proyek Anda →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       05. TESTIMONI (Testimonials)
+       ============================================ -->
+  <section id="testimoni" class="py-16 md:py-24 bg-swiss-muted swiss-grid-pattern border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-16 md:mb-20">
+        <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">05. Testimoni</span>
+        <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mt-4">
+          Kata Mereka
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+        {testimonials.map((t, i) => (
+          <div class={`bg-white border-2 border-black p-8 md:p-10 group hover:-translate-y-px hover:border-swiss-accent transition-all duration-200 cursor-default`}>
+            <!-- Quote mark -->
+            <div class="text-6xl font-black leading-none text-swiss-accent mb-4 select-none">"</div>
+            <p class="text-sm md:text-base text-black/70 group-hover:text-black leading-relaxed mb-8 transition-colors duration-200">
+              {t.quote}
+            </p>
+            <div class="border-t-2 border-black pt-6">
+              <div class="font-black text-sm uppercase tracking-tight">{t.name}</div>
+              <div class="text-xs text-black/50 uppercase tracking-widest mt-1">{t.role}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       06. ORDER FORM
+       ============================================ -->
+  <section id="order" class="py-16 md:py-24 bg-swiss-muted swiss-grid-pattern border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+        <!-- Left: Section Header -->
+        <div class="lg:col-span-4">
+          <div class="lg:sticky lg:top-28">
+            <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">06. Order</span>
+            <h2 class="font-black uppercase text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.9] mt-4 mb-6">
+              Pesan<br />Sekarang
+            </h2>
+            <p class="text-base font-medium text-black/60 leading-relaxed mb-8">
+              Isi form di bawah untuk mendapatkan estimasi biaya secara langsung. Kirim order via WhatsApp.
+            </p>
+
+            <!-- Pricing Info -->
+            <div class="hidden lg:block bg-white border-2 border-black p-6">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-swiss-accent mb-4">Informasi Harga</h4>
+              <div class="space-y-4">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wide block mb-1">Aplikasi Offline</span>
+                  <span class="font-black text-lg">Mulai dari Rp. 500.000</span>
+                </div>
+                <div class="h-0.5 bg-black"></div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wide block mb-1">Aplikasi Online</span>
+                  <span class="font-black text-lg">Mulai dari Rp. 1.000.000</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t-2 border-black space-y-3">
+                <p class="text-[10px] font-bold text-black/60 uppercase tracking-wider">For Your Information</p>
+                <p class="text-[10px] text-black/50 tracking-wider leading-relaxed">
+                  <span class="font-bold">Aplikasi Offline</span> — Merupakan aplikasi yang dapat berjalan tanpa adanya koneksi internet, biasanya digunakan untuk aplikasi yang bersifat tools atau utilitas lokal.
+                </p>
+                <p class="text-[10px] text-black/50 tracking-wider leading-relaxed">
+                  <span class="font-bold">Aplikasi Online</span> — Merupakan aplikasi yang memerlukan koneksi internet untuk dapat berjalan, biasanya digunakan untuk aplikasi yang memerlukan sinkronisasi data secara real-time atau aplikasi yang memiliki fitur berbasis cloud.
+                </p>
+                <p class="text-[10px] text-swiss-accent/80 tracking-wider leading-relaxed font-bold">
+                  Note: Output yang didapatkan adalah berupa file .APK yang dapat di-install di perangkat Anda, tidak meliputi release ke PlayStore.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="lg:col-span-8">
+          <!-- Step Indicators -->
+          <div class="flex items-center gap-0 mb-10">
+            <button id="step-ind-1" class="flex-1 py-4 border-2 border-black bg-black text-white text-xs font-bold uppercase tracking-widest text-center transition-colors duration-200 cursor-pointer" onclick="goToStep(1)">
+              01 — Draft Kerja Sama
+            </button>
+            <button id="step-ind-2" class="flex-1 py-4 border-2 border-black border-l-0 bg-white text-black text-xs font-bold uppercase tracking-widest text-center transition-colors duration-200 cursor-pointer" onclick="goToStep(2)">
+              02 — Detail Aplikasi
+            </button>
+          </div>
+
+          <!-- ==============================
+               STEP 1: Draft Kerja Sama
+               ============================== -->
+          <div id="step-1" class="">
+            <div class="bg-white border-2 border-black">
+              <!-- Header -->
+              <div class="p-6 md:p-10 border-b-2 border-black">
+                <h3 class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2">Draft Perjanjian Kerja Sama</h3>
+                <p class="text-sm text-black/50 leading-relaxed">Perjanjian ini dibuat sebagai dasar kerja sama antara kedua belah pihak dalam pengembangan aplikasi Android.</p>
+              </div>
+
+              <div class="p-6 md:p-10 space-y-8">
+                <!-- Para Pihak -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                  <div class="border-2 border-black p-6">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-swiss-accent block mb-3">Pihak Pertama (Client)</span>
+                    <div class="space-y-4">
+                      <div>
+                        <label for="client-name" class="block text-[10px] font-bold uppercase tracking-widest text-black/40 mb-1">Nama Lengkap</label>
+                        <input type="text" id="client-name" placeholder="Nama lengkap Anda" class="w-full border-b-2 border-black bg-transparent py-2 text-sm font-medium placeholder:text-black/20 focus:border-swiss-accent focus:outline-none transition-colors duration-200" />
+                      </div>
+                      <div>
+                        <label for="client-company" class="block text-[10px] font-bold uppercase tracking-widest text-black/40 mb-1">Perusahaan / Usaha / Perseorangan</label>
+                        <input type="text" id="client-company" placeholder="Nama perusahaan (opsional)" class="w-full border-b-2 border-black bg-transparent py-2 text-sm font-medium placeholder:text-black/20 focus:border-swiss-accent focus:outline-none transition-colors duration-200" />
+                      </div>
+                      <div>
+                        <label for="client-phone" class="block text-[10px] font-bold uppercase tracking-widest text-black/40 mb-1">No. WhatsApp</label>
+                        <input type="tel" id="client-phone" placeholder="08xxxxxxxxxx" class="w-full border-b-2 border-black bg-transparent py-2 text-sm font-medium placeholder:text-black/20 focus:border-swiss-accent focus:outline-none transition-colors duration-200" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border-2 border-black border-t-0 md:border-t-2 md:border-l-0 p-6 bg-swiss-muted swiss-dots">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-swiss-accent block mb-3">Pihak Kedua (Developer)</span>
+                    <div class="space-y-3">
+                      <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-black/40 block mb-1">Nama</span>
+                        <span class="text-sm font-bold">Rizki Android</span>
+                      </div>
+                      <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-black/40 block mb-1">Layanan</span>
+                        <span class="text-sm font-bold">Jasa Pembuatan Aplikasi Android</span>
+                      </div>
+                      <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-black/40 block mb-1">Lokasi</span>
+                        <span class="text-sm font-bold">Sidoarjo, Jawa Timur</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pasal-Pasal -->
+                <div class="space-y-0">
+                  <!-- Pasal 1 -->
+                  <div class="border-2 border-black p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 1</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Objek Perjanjian</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Pihak Pertama menyetujui untuk menggunakan jasa Pihak Kedua dalam pembuatan aplikasi Android sesuai dengan spesifikasi yang akan disepakati pada tahap Detail Aplikasi. Pihak Kedua menyanggupi untuk mengerjakan proyek sesuai standar profesional.</p>
+                  </div>
+
+                  <!-- Pasal 2 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 2</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Ruang Lingkup Pekerjaan</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Ruang lingkup pekerjaan meliputi: desain UI/UX, pengembangan aplikasi, state management, loading state, error state, empty state, dan build format .APK. Detail fitur dan jumlah screen akan ditentukan pada tahap berikutnya.</p>
+                  </div>
+
+                  <!-- Pasal 3 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 3</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Waktu Pelaksanaan</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Waktu pengerjaan akan ditentukan berdasarkan kompleksitas proyek setelah spesifikasi disepakati. Pihak Kedua akan memberikan timeline detail sebelum pekerjaan dimulai. Estimasi umum: 1 Minggu (sederhana), 2–3 Minggu (menengah), 3–8 Minggu (kompleks).</p>
+                  </div>
+
+                  <!-- Pasal 4 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 4</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Nilai Kontrak dan Pembayaran</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Nilai kontrak dihitung berdasarkan jumlah screen dan jenis aplikasi. Aplikasi Offline: Rp 500.000/screen. Aplikasi Online: mulai dari Rp 1.000.000 + Rp 500.000/screen. Pembayaran dilakukan secara final Payment.</p>
+                  </div>
+
+                  <!-- Pasal 5 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 5</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Garansi Support</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Pihak Kedua memberikan garansi support untuk perbaikan bug selama masa garansi yang disepakati setelah aplikasi selesai yaitu 2 pekan. Support meliputi perbaikan bug dan error yang ditemukan pada fitur yang telah disepakati dalam ruang lingkup pekerjaan. Tidak mencakup diluar scope lingkup pekerjaan.</p>
+                  </div>
+
+                  <!-- Pasal 6 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 6</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Perubahan Scope</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Perubahan atau penambahan fitur di luar ruang lingkup yang telah disepakati akan dikenakan biaya tambahan sesuai kalkulasi baru. Setiap perubahan scope harus dikomunikasikan dan disetujui oleh kedua belah pihak secara tertulis sebelum dikerjakan.</p>
+                  </div>
+
+                  <!-- Pasal 7 -->
+                  <div class="border-2 border-black border-t-0 p-5 md:p-6">
+                    <div class="flex items-baseline gap-3 mb-2">
+                      <span class="text-xs font-black text-swiss-accent shrink-0">Pasal 7</span>
+                      <span class="text-xs font-black uppercase tracking-tight">Hak Kekayaan Intelektual</span>
+                    </div>
+                    <p class="text-xs text-black/60 leading-relaxed">Setelah pembayaran lunas, hak kepemilikan source code dan aset aplikasi sepenuhnya menjadi milik Pihak Pertama. Pihak Kedua berhak mencantumkan proyek dalam portofolio tanpa mengungkapkan informasi rahasia milik Pihak Pertama.</p>
+                  </div>
+                </div>
+
+                <!-- Agreement Checkbox -->
+                <div class="flex items-start gap-3 p-4 bg-swiss-muted border-2 border-black">
+                  <input type="checkbox" id="agree-terms" class="w-5 h-5 mt-0.5 shrink-0 accent-swiss-accent cursor-pointer" />
+                  <label for="agree-terms" class="text-xs text-black/70 leading-relaxed cursor-pointer">
+                    Saya telah membaca dan menyetujui seluruh pasal dalam draft perjanjian kerja sama ini. Saya memahami bahwa detail spesifikasi dan biaya final akan ditentukan pada tahap berikutnya.
+                  </label>
+                </div>
+              </div>
+
+              <!-- Next Button -->
+              <div class="border-t-2 border-black p-6 md:p-10">
+                <button
+                  onclick="goToStep(2)"
+                  id="btn-next-step"
+                  class="w-full sm:w-auto bg-black text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-swiss-accent transition-colors duration-200 ease-out cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-black"
+                  disabled
+                >
+                  Lanjut ke Detail Aplikasi →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==============================
+               STEP 2: Detail Aplikasi (merged)
+               ============================== -->
+          <div id="step-2" class="hidden">
+            <div class="bg-white border-2 border-black">
+              <div class="p-6 md:p-10 space-y-8">
+                <!-- Nama Aplikasi -->
+                <div>
+                  <label for="app-name" class="block text-xs font-bold uppercase tracking-widest mb-3">Nama Aplikasi</label>
+                  <input
+                    type="text"
+                    id="app-name"
+                    placeholder="Contoh: Aplikasi Kasir Toko Saya"
+                    class="w-full border-b-2 border-black bg-transparent py-3 text-base font-medium placeholder:text-black/30 focus:border-swiss-accent focus:outline-none transition-colors duration-200"
+                  />
+                </div>
+
+                <!-- Target Aplikasi -->
+                <div>
+                  <label for="app-target" class="block text-xs font-bold uppercase tracking-widest mb-3">Target Aplikasi</label>
+                  <input
+                    type="text"
+                    id="app-target"
+                    placeholder="Contoh: Pemilik toko retail di Sidoarjo"
+                    class="w-full border-b-2 border-black bg-transparent py-3 text-base font-medium placeholder:text-black/30 focus:border-swiss-accent focus:outline-none transition-colors duration-200"
+                  />
+                </div>
+
+                <!-- Tujuan Membuat Aplikasi -->
+                <div>
+                  <label for="app-purpose" class="block text-xs font-bold uppercase tracking-widest mb-3">Tujuan Membuat Aplikasi</label>
+                  <textarea
+                    id="app-purpose"
+                    rows="3"
+                    placeholder="Jelaskan tujuan dan masalah yang ingin diselesaikan dengan aplikasi ini..."
+                    class="w-full border-2 border-black bg-transparent p-4 text-base font-medium placeholder:text-black/30 focus:border-swiss-accent focus:outline-none transition-colors duration-200 resize-none"
+                  ></textarea>
+                </div>
+
+                <!-- Divider -->
+                <div class="flex items-center gap-4">
+                  <div class="flex-1 h-0.5 bg-black"></div>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-black/30">Spesifikasi</span>
+                  <div class="flex-1 h-0.5 bg-black"></div>
+                </div>
+
+                <!-- Jenis Aplikasi: Online / Offline -->
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-widest mb-4">Jenis Aplikasi</label>
+                  <div class="grid grid-cols-2 gap-0">
+                    <button
+                      id="type-offline"
+                      onclick="setAppType('offline')"
+                      class="app-type-btn py-5 border-2 border-black text-sm font-bold uppercase tracking-widest text-center transition-colors duration-200 cursor-pointer bg-black text-white"
+                    >
+                      <span class="block text-lg mb-1">⚡</span>
+                      Offline
+                    </button>
+                    <button
+                      id="type-online"
+                      onclick="setAppType('online')"
+                      class="app-type-btn py-5 border-2 border-black border-l-0 text-sm font-bold uppercase tracking-widest text-center transition-colors duration-200 cursor-pointer bg-white text-black"
+                    >
+                      <span class="block text-lg mb-1">🌐</span>
+                      Online
+                    </button>
+                  </div>
+                  <p id="type-desc" class="mt-3 text-xs text-black/50 leading-relaxed">
+                    Aplikasi berjalan tanpa koneksi internet. Cocok untuk tools & utilitas lokal.
+                  </p>
+                </div>
+
+                <!-- Fitur yang Diharapkan -->
+                <div>
+                  <label for="app-features" class="block text-xs font-bold uppercase tracking-widest mb-3">Fitur yang Diharapkan</label>
+                  <textarea
+                    id="app-features"
+                    rows="4"
+                    placeholder="Contoh: Login, Register, Dashboard, Data Produk, Laporan Penjualan, Export PDF, Chating, Realtime, Notifikasi, dll..."
+                    class="w-full border-2 border-black bg-transparent p-4 text-base font-medium placeholder:text-black/30 focus:border-swiss-accent focus:outline-none transition-colors duration-200 resize-none"
+                  ></textarea>
+                </div>
+
+                <!-- Jumlah Screen -->
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-widest mb-1">Jumlah Screen Aplikasi</label>
+                  <p class="text-xs text-black/40 mb-4">Estimasi total tampilan/halaman yang akan dikerjakan</p>
+                  <div class="flex items-center gap-0">
+                    <button
+                      onclick="adjustScreen(-1)"
+                      class="w-14 h-14 border-2 border-black flex items-center justify-center text-2xl font-black hover:bg-swiss-accent hover:text-white transition-colors duration-200 cursor-pointer select-none"
+                    >−</button>
+                    <input
+                      type="number"
+                      id="screen-count"
+                      value="1"
+                      min="1"
+                      max="100"
+                      onchange="updatePrice()"
+                      class="w-20 h-14 border-2 border-black border-l-0 border-r-0 text-center text-xl font-black focus:outline-none focus:border-swiss-accent transition-colors duration-200"
+                    />
+                    <button
+                      onclick="adjustScreen(1)"
+                      class="w-14 h-14 border-2 border-black flex items-center justify-center text-2xl font-black hover:bg-swiss-accent hover:text-white transition-colors duration-200 cursor-pointer select-none"
+                    >+</button>
+                    <span class="ml-4 text-xs font-bold uppercase tracking-widest text-black/40">Screen</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Pricing Panel -->
+              <div class="border-t-2 border-black bg-swiss-muted swiss-diagonal">
+                <div class="p-6 md:p-10">
+                  <div class="flex items-baseline justify-between mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">Estimasi Biaya</span>
+                    <span id="app-type-badge" class="text-[10px] font-bold uppercase tracking-widest bg-black text-white px-3 py-1">Offline</span>
+                  </div>
+
+                  <!-- Price Breakdown -->
+                  <div class="space-y-3 mb-6">
+                    <div class="flex justify-between items-baseline" id="price-row-base">
+                      <span class="text-sm text-black/60">Screen/</span>
+                      <span class="font-bold text-sm" id="price-base">Rp 285.000</span>
+                    </div>
+                    <div class="flex justify-between items-baseline" id="price-row-additional">
+                      <span class="text-sm text-black/60" id="price-additional-label">0 screen</span>
+                      <span class="font-bold text-sm" id="price-additional">Rp 0</span>
+                    </div>
+                    <div class="h-px bg-black/20"></div>
+                  </div>
+
+                  <!-- Total -->
+                  <div class="flex justify-between items-baseline mb-2">
+                    <span class="text-xs font-bold uppercase tracking-widest">Total Estimasi</span>
+                    <span class="font-black text-3xl md:text-4xl tracking-tighter text-swiss-accent" id="price-total">Rp 285.000</span>
+                  </div>
+                  <p class="text-[10px] text-black/40 uppercase tracking-wider">
+                    *Harga final dapat berubah setelah diskusi detail kebutuhan
+                  </p>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="border-t-2 border-black p-6 md:p-10 flex flex-col sm:flex-row gap-4">
+                <button
+                  onclick="goToStep(1)"
+                  class="border-2 border-black px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-200 ease-out cursor-pointer"
+                >
+                  ← Kembali
+                </button>
+                <button
+                  onclick="submitOrder()"
+                  class="flex-1 bg-swiss-accent text-white px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-black transition-colors duration-200 ease-out cursor-pointer"
+                >
+                  Kirim Order via WhatsApp →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Rate Info -->
+          <div class="lg:hidden mt-8 bg-white border-2 border-black p-6">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-swiss-accent mb-4">Informasi Harga</h4>
+            <div class="space-y-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wide block mb-1">Aplikasi Offline</span>
+                <span class="font-black text-lg">Mulai dari Rp. 500.000</span>
+              </div>
+              <div class="h-0.5 bg-black"></div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wide block mb-1">Aplikasi Online</span>
+                <span class="font-black text-lg">Mulai dari Rp. 1.000.000</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t-2 border-black space-y-3">
+              <p class="text-[10px] font-bold text-black/60 uppercase tracking-wider">For Your Information</p>
+              <p class="text-[10px] text-black/50 tracking-wider leading-relaxed">
+                <span class="font-bold">Aplikasi Offline</span> — Merupakan aplikasi yang dapat berjalan tanpa adanya koneksi internet, biasanya digunakan untuk aplikasi yang bersifat tools atau utilitas lokal.
+              </p>
+              <p class="text-[10px] text-black/50 tracking-wider leading-relaxed">
+                <span class="font-bold">Aplikasi Online</span> — Merupakan aplikasi yang memerlukan koneksi internet untuk dapat berjalan, biasanya digunakan untuk aplikasi yang memerlukan sinkronisasi data secara real-time atau aplikasi yang memiliki fitur berbasis cloud.
+              </p>
+              <p class="text-[10px] text-swiss-accent/80 tracking-wider leading-relaxed font-bold">
+                Note: Output yang didapatkan adalah berupa file .APK yang dapat di-install di perangkat Anda, tidak meliputi release ke PlayStore.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA SECTION
+       ============================================ -->
+  <section id="kontak" class="py-20 md:py-32 bg-swiss-accent text-white border-b-4 border-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 text-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-white/60">Siap Memulai?</span>
+      <h2 class="font-black uppercase text-5xl md:text-7xl lg:text-9xl tracking-tighter leading-[0.85] mt-6 mb-8">
+        Mari Wujudkan<br />Aplikasi Anda
+      </h2>
+      <p class="text-base md:text-lg font-medium text-white/80 max-w-xl mx-auto mb-12 leading-relaxed">
+        Konsultasikan kebutuhan aplikasi Android Anda secara gratis. Tim kami siap membantu dari konsep hingga rilis.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://wa.me/6285749463854"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white text-black px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-200 ease-out"
+        >
+          WhatsApp Kami →
+        </a>
+        <a
+          href="mailto:hello@rizkiandroid.com"
+          class="border-2 border-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-swiss-accent transition-colors duration-200 ease-out"
+        >
+          Kirim Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="bg-black text-white py-16 md:py-24">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 md:mb-24">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/logo.svg" alt="Rizki Android" class="w-10 h-10 object-contain" />
+            <span class="font-black text-sm uppercase tracking-tight">Rizki Android</span>
+          </div>
+          <p class="text-sm text-white/50 leading-relaxed">
+            Jasa pembuatan aplikasi Android profesional berbasis di Sidoarjo, Jawa Timur.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-swiss-accent mb-6">Layanan</h4>
+          <ul class="space-y-3">
+            <li><a href="#layanan" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Aplikasi Custom</a></li>
+            <li><a href="#layanan" class="text-sm text-white/60 hover:text-white transition-colors duration-200">UI/UX Design</a></li>
+            <li><a href="#layanan" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Maintenance & Support</a></li>
+            <li><a href="#layanan" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Konsultasi IT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-swiss-accent mb-6">Perusahaan</h4>
+          <ul class="space-y-3">
+            <li><a href="#proses" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Cara Kerja</a></li>
+            <li><a href="#keunggulan" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Keunggulan</a></li>
+            <li><a href="#portofolio" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Portofolio</a></li>
+            <li><a href="#testimoni" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Testimoni</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-swiss-accent mb-6">Kontak</h4>
+          <ul class="space-y-3">
+            <li class="text-sm text-white/60">Sidoarjo, Jawa Timur</li>
+            <li class="text-sm text-white/60">Indonesia</li>
+            <li><a href="mailto:hello@rizkiandroid.com" class="text-sm text-white/60 hover:text-swiss-accent transition-colors duration-200">hello@rizkiandroid.com</a></li>
+            <li><a href="https://wa.me/6285749463854" class="text-sm text-white/60 hover:text-swiss-accent transition-colors duration-200">+62 857-4946-3854</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="mb-16 md:mb-24 border-2 border-white/20">
+        <div class="flex items-center justify-between bg-white/5 px-4 py-3 border-b-2 border-white/20">
+          <span class="text-xs font-bold uppercase tracking-widest text-swiss-accent">Lokasi Kami</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-white/30">Sidoarjo, Jawa Timur</span>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31654.47566986598!2d112.70494285!3d-7.4478137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e6c1e34f8b61%3A0x6af8bdce01011b3b!2sSidoarjo%2C%20Kec.%20Sidoarjo%2C%20Kabupaten%20Sidoarjo%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+          width="100%"
+          height="300"
+          style="border:0; filter: grayscale(100%) contrast(1.1);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Rizki Android - Sidoarjo, Jawa Timur"
+        ></iframe>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p class="text-xs text-white/30 uppercase tracking-widest">
+          &copy; 2026 Rizki Android. Seluruh hak dilindungi.
+        </p>
+        <p class="text-xs text-white/30 uppercase tracking-widest">
+          Jasa Pembuatan Aplikasi Android Sidoarjo
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MOBILE MENU SCRIPT
+       ============================================ -->
+  <script>
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const bar1 = document.getElementById("bar1");
+    const bar2 = document.getElementById("bar2");
+    const bar3 = document.getElementById("bar3");
+
+    let isOpen = false;
+
+    menuBtn?.addEventListener("click", () => {
+      isOpen = !isOpen;
+      mobileMenu?.classList.toggle("hidden");
+
+      if (isOpen) {
+        bar1!.style.transform = "rotate(45deg) translate(4px, 4px)";
+        bar2!.style.opacity = "0";
+        bar3!.style.transform = "rotate(-45deg) translate(2px, -2px)";
+        bar3!.style.width = "24px";
+      } else {
+        bar1!.style.transform = "none";
+        bar2!.style.opacity = "1";
+        bar3!.style.transform = "none";
+        bar3!.style.width = "16px";
+      }
+    });
+
+    // Close menu on link click
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        isOpen = false;
+        bar1!.style.transform = "none";
+        bar2!.style.opacity = "1";
+        bar3!.style.transform = "none";
+        bar3!.style.width = "16px";
+      });
+    });
+  </script>
+
+  <!-- ============================================
+       ORDER FORM SCRIPT
+       ============================================ -->
+  <script is:inline>
+    // State
+    let currentStep = 1;
+    let appType = "offline"; // "offline" | "online"
+
+    // Pricing constants
+    const RATE_OFFLINE_PER_SCREEN = 500000;
+    const RATE_ONLINE_FIRST_SCREEN = 1000000;
+    const RATE_ONLINE_ADDITIONAL_SCREEN = 500000;
+
+    // Agreement checkbox logic
+    const agreeCheckbox = document.getElementById("agree-terms");
+    const btnNext = document.getElementById("btn-next-step");
+    if (agreeCheckbox && btnNext) {
+      agreeCheckbox.addEventListener("change", function () {
+        btnNext.disabled = !this.checked;
+      });
+    }
+
+    // Step navigation
+    function goToStep(step) {
+      // Block step 2 if agreement not checked
+      if (step === 2 && agreeCheckbox && !agreeCheckbox.checked) {
+        agreeCheckbox.parentElement.style.borderColor = "#FF3000";
+        agreeCheckbox.focus();
+        return;
+      }
+
+      currentStep = step;
+      const step1 = document.getElementById("step-1");
+      const step2 = document.getElementById("step-2");
+      const ind1 = document.getElementById("step-ind-1");
+      const ind2 = document.getElementById("step-ind-2");
+
+      if (step === 1) {
+        step1.classList.remove("hidden");
+        step2.classList.add("hidden");
+        ind1.classList.add("bg-black", "text-white");
+        ind1.classList.remove("bg-white", "text-black");
+        ind2.classList.add("bg-white", "text-black");
+        ind2.classList.remove("bg-black", "text-white");
+      } else {
+        step1.classList.add("hidden");
+        step2.classList.remove("hidden");
+        ind2.classList.add("bg-black", "text-white");
+        ind2.classList.remove("bg-white", "text-black");
+        ind1.classList.add("bg-white", "text-black");
+        ind1.classList.remove("bg-black", "text-white");
+        updatePrice();
+      }
+    }
+
+    // App type toggle
+    function setAppType(type) {
+      appType = type;
+      const btnOffline = document.getElementById("type-offline");
+      const btnOnline = document.getElementById("type-online");
+      const desc = document.getElementById("type-desc");
+      const badge = document.getElementById("app-type-badge");
+
+      if (type === "offline") {
+        btnOffline.classList.add("bg-black", "text-white");
+        btnOffline.classList.remove("bg-white", "text-black");
+        btnOnline.classList.add("bg-white", "text-black");
+        btnOnline.classList.remove("bg-black", "text-white");
+        desc.textContent = "Aplikasi berjalan tanpa koneksi internet. Cocok untuk tools & utilitas lokal.";
+        badge.textContent = "Offline";
+      } else {
+        btnOnline.classList.add("bg-black", "text-white");
+        btnOnline.classList.remove("bg-white", "text-black");
+        btnOffline.classList.add("bg-white", "text-black");
+        btnOffline.classList.remove("bg-black", "text-white");
+        desc.textContent = "Aplikasi terhubung ke internet via RestfulAPI. Cocok untuk sistem yang butuh sinkronisasi data.";
+        badge.textContent = "Online + API";
+      }
+
+      updatePrice();
+    }
+
+    // Screen count adjustment
+    function adjustScreen(delta) {
+      const input = document.getElementById("screen-count");
+      let val = parseInt(input.value) || 1;
+      val = Math.max(1, Math.min(100, val + delta));
+      input.value = val;
+      updatePrice();
+    }
+
+    // Format currency
+    function formatRupiah(num) {
+      return "Rp " + num.toLocaleString("id-ID");
+    }
+
+    // Update price display
+    function updatePrice() {
+      const screens = Math.max(1, parseInt(document.getElementById("screen-count").value) || 1);
+      let firstScreenPrice, additionalTotal, total;
+
+      if (appType === "offline") {
+        firstScreenPrice = RATE_OFFLINE_PER_SCREEN;
+        const additionalScreens = Math.max(0, screens - 1);
+        additionalTotal = additionalScreens * RATE_OFFLINE_PER_SCREEN;
+        total = screens * RATE_OFFLINE_PER_SCREEN;
+
+        document.getElementById("price-base").textContent = formatRupiah(firstScreenPrice);
+        document.getElementById("price-row-base").querySelector("span").textContent = "Screen pertama (Offline)";
+        document.getElementById("price-additional-label").textContent = additionalScreens + " screen tambahan × " + formatRupiah(RATE_OFFLINE_PER_SCREEN);
+      } else {
+        firstScreenPrice = RATE_ONLINE_FIRST_SCREEN;
+        const additionalScreens = Math.max(0, screens - 1);
+        additionalTotal = additionalScreens * RATE_ONLINE_ADDITIONAL_SCREEN;
+        total = firstScreenPrice + additionalTotal;
+
+        document.getElementById("price-base").textContent = formatRupiah(firstScreenPrice);
+        document.getElementById("price-row-base").querySelector("span").textContent = "Screen pertama (Online + API)";
+        document.getElementById("price-additional-label").textContent = additionalScreens + " screen tambahan × " + formatRupiah(RATE_ONLINE_ADDITIONAL_SCREEN);
+      }
+
+      document.getElementById("price-additional").textContent = formatRupiah(additionalTotal);
+      document.getElementById("price-total").textContent = formatRupiah(total);
+    }
+
+    // Submit order via WhatsApp
+    function submitOrder() {
+      const clientName = document.getElementById("client-name").value.trim();
+      const clientCompany = document.getElementById("client-company").value.trim();
+      const clientPhone = document.getElementById("client-phone").value.trim();
+      const appName = document.getElementById("app-name").value.trim();
+      const appTarget = document.getElementById("app-target").value.trim();
+      const appPurpose = document.getElementById("app-purpose").value.trim();
+      const appFeatures = document.getElementById("app-features").value.trim();
+      const screens = parseInt(document.getElementById("screen-count").value) || 1;
+      const totalText = document.getElementById("price-total").textContent;
+
+      if (!appName) {
+        document.getElementById("app-name").focus();
+        document.getElementById("app-name").style.borderColor = "#FF3000";
+        return;
+      }
+
+      const jenis = appType === "online" ? "Online" : "Offline";
+
+      let message = `Halo Rizki Android! 👋\n\n`;
+      message += `Saya ingin order pembuatan aplikasi Android:\n\n`;
+      message += `👤 *PIHAK PERTAMA (CLIENT)*\n`;
+      if (clientName) message += `Nama: ${clientName}\n`;
+      if (clientCompany) message += `Perusahaan: ${clientCompany}\n`;
+      if (clientPhone) message += `WhatsApp: ${clientPhone}\n`;
+      message += `\n📱 *DETAIL APLIKASI*\n`;
+      message += `Nama: ${appName}\n`;
+      if (appTarget) message += `Target: ${appTarget}\n`;
+      if (appPurpose) message += `Tujuan: ${appPurpose}\n`;
+      message += `\n⚙️ *SPESIFIKASI*\n`;
+      message += `Jenis: ${jenis}\n`;
+      message += `Jumlah Screen: ${screens}\n`;
+      if (appFeatures) message += `Fitur: ${appFeatures}\n`;
+      message += `\n💰 *ESTIMASI BIAYA*\n`;
+      message += `${totalText}\n`;
+      message += `\n✅ Draft Perjanjian Kerja Sama telah disetujui.\n`;
+      message += `\nMohon informasi lebih lanjut. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/6285749463854?text=${encoded}`, "_blank");
+    }
+
+    // Make functions available globally
+    window.goToStep = goToStep;
+    window.setAppType = setAppType;
+    window.adjustScreen = adjustScreen;
+    window.submitOrder = submitOrder;
+  </script>
+</Layout>
